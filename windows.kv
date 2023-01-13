@@ -1,0 +1,572 @@
+<WindowManager>:    
+    MainWindow:
+        name: "main"
+    CheckWindow:
+        name: "check"
+    CheckVideoWindow:
+        name: "checkvideo"
+    CategoryWindow:
+        name: "category"
+    AddCategoryWindow:
+        name: "addcategory"
+    DeleteCategoryWindow:
+        name: "deletecategory"
+    TableWindow:
+        name: "table"
+    ChartWindow:
+        name: "chart"
+    SettingWindow:
+        name: "setting"
+
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: "#e7e4c0"
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    ripple_color: "#c5bdd2"
+    selected_color: "#0c6c4d"
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    focus_behavior: False
+    selected_color: "#4a4939"
+    _no_ripple_effect: True
+
+<ChartWindow>:
+    MDScreen:
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12dp"
+            pos_hint: {"top": 1}
+            
+            MDTopAppBar:
+                title: "Статистика"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items:                 
+                    [["arrow-left", lambda x: root.main(),"Повернутись"]]
+               
+            MDTabs:                
+                id: tabs_chart                 
+                background_color: "#e7e4c0"
+                text_color_normal: "#4a4939"
+                text_color_active: "#998d03"
+                on_tab_switch: root.on_chart_switch(*args)
+
+                Tab:                    
+                    id: tab1_chart
+                    name: 'tab1_chart'                    
+                    title: " День "
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        pos: 0, root.height - 180
+                        
+                        MDFlatButton:
+                            text: "Виберіть дату"                                
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+
+                        MDRaisedButton:
+                            id: day1
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+                            on_release: root.show_chart_picker1()
+
+                    BoxLayout:
+                        id: chart1                            
+                        size_hint_y: .8
+                        pos_hint: {"top":.8}
+
+                Tab:                    
+                    id: tab2_chart
+                    name: 'tab2_chart'                    
+                    title: " Період "
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        pos: 0, root.height - 180
+                        
+                        MDFlatButton:
+                            text: "Виберіть період"                                
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+                            
+                        MDRaisedButton:
+                            id: day2
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+                            on_release: root.show_chart_picker2()
+
+                    BoxLayout:
+                        id: chart2                            
+                        size_hint_y: .8
+                        pos_hint: {"top":.8}
+                
+                Tab:                    
+                    id: tab3_chart
+                    name: 'tab3_chart'                    
+                    title: " Рік "
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        pos: 0, root.height - 180
+                        
+                        MDFlatButton:
+                            text: "Виберіть рік"                                
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+
+                        MDRaisedButton:
+                            id: day3
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+                            on_release: root.show_chart_picker3()                        
+
+                    BoxLayout:
+                        id: chart3                            
+                        size_hint_y: .8
+                        pos_hint: {"top":.8}
+                        
+<TableWindow>:
+    MDScreen:
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12dp"
+            pos_hint: {"top": 1}
+            
+            MDTopAppBar:
+                title: "Статистика"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items:                 
+                    [["arrow-left", lambda x: root.main(),"Повернутись"]]
+               
+            MDTabs:                
+                id: tabs                 
+                background_color: "#e7e4c0"
+                text_color_normal: "#4a4939"
+                text_color_active: "#998d03"
+                on_tab_switch: root.on_tab_switch(*args)
+
+                Tab:                    
+                    id: tab1
+                    name: 'tab1'                    
+                    title: " День "
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        pos: 0, root.height - 180
+                        
+                        MDFlatButton:
+                            text: "Виберіть дату"                                
+                            text_color: "#e7e4c0"
+                            md_bg_color: "#e7e4c0"
+
+                        MDRaisedButton:
+                            id: day1_label
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+                            on_release: root.show_date_picker1()
+
+                    BoxLayout:
+                        id: grid_tab1                            
+                        orientation: 'horizontal'
+
+                Tab:                    
+                    id: tab2
+                    name: 'tab2'                    
+                    title: " Період "
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        pos: 0, root.height - 180
+                        
+                        MDFlatButton:
+                            text: "Виберіть період"                                
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+                            
+                        MDRaisedButton:
+                            id: day2_label
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+                            on_release: root.show_date_picker2()
+
+                    BoxLayout:
+                        id: grid_tab2                            
+                        orientation: 'horizontal'
+                
+                Tab:                    
+                    id: tab3
+                    name: 'tab3'                    
+                    title: " Рік "
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        pos: 0, root.height - 180
+                        
+                        MDFlatButton:
+                            text: "Виберіть рік"                                
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+
+                        MDRaisedButton:
+                            id: day3_label
+                            text_color: "black"
+                            md_bg_color: "#e7e4c0"
+                            on_release: root.show_date_picker3()                        
+
+                    BoxLayout:
+                        id: grid_tab3                            
+                        orientation: 'horizontal'                
+                             
+<Tab>
+    MDIconButton:
+        id: icon
+        icon: root.icon
+        icon_size: "48sp"
+        pos_hint: {"center_x": .5, "center_y": .5}
+                            
+
+
+    
+<CategoryWindow>:
+    MDScreen:
+
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12dp"
+            pos_hint: {"top": 1}
+            adaptive_height: True
+
+            MDTopAppBar:
+                title: "Категорії"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items:                 
+                    [["arrow-left", lambda x: root.main(),"Повернутись"]]
+                right_action_items:
+                    [["dots-vertical", lambda x: root.callback(x)]]  
+                
+            MDGridLayout:
+                adaptive_height: True
+                id: grid
+                col_default_width: 150
+                row_default_height: 100
+                cols: 3
+                adaptive_size: True
+                pos_hint: {'center_x': .5, 'center_y': .5}
+
+<DeleteCategoryWindow>:
+    MDScreen:
+
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12dp"
+            pos_hint: {"top": 1}
+            adaptive_height: True
+
+            MDTopAppBar:
+                title: "Видалити категорію"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items:                 
+                    [["arrow-left", lambda x: root.category(),"Повернутись"]]
+            MDGridLayout:
+                adaptive_height: True
+                cols: 3
+                rows: 1
+
+                MDLabel:
+                    text: "  Виберіть назву категорії"
+
+                MDDropDownItem:
+                    id: drop_item
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    text: ''
+                    on_release: root.menu.open()
+             
+            MDRoundFlatButton:
+                text: "Видалити"
+                line_color: "#e7e4c0"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                text_color: "white"
+                on_press: root.deletecategory()
+                    
+<AddCategoryWindow>:
+    MDScreen:
+
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12dp"
+            pos_hint: {"top": 1}
+            adaptive_height: True
+
+            MDTopAppBar:
+                title: "Додати категорію"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items:                 
+                    [["arrow-left", lambda x: root.category(),"Повернутись"]]
+            MDGridLayout:
+                adaptive_height: True
+                cols: 2
+                rows: 2
+
+                MDLabel:
+                    text: "  Введіть назву категорії"
+
+                MDTextField:
+                    id: name
+                    hint_text: ""
+                MDLabel:
+                    text: "  Виберіть значок категорії"
+                            
+            MDGridLayout:
+                adaptive_height: True
+                id: grid
+                col_default_width: 150
+                row_default_height: 100
+                cols: 3                
+                adaptive_size: True
+                pos_hint: {'center_x': .5, 'center_y': .5} 
+
+<CheckVideoWindow>:
+    MDScreen:
+
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12dp"
+            pos_hint: {"top": 1}
+            adaptive_height: True
+
+            MDTopAppBar:
+                title: "Введення витрат"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items:                 
+                    [["arrow-left", lambda x: root.main(),"Повернутись"]]
+
+            MDGridLayout:
+                adaptive_height: True
+                cols: 3
+                rows: 1
+
+                MDLabel:
+                    text: "  Виберіть назву категорії"
+
+                MDDropDownItem:
+                    id: drop_item
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    text: ''
+                    on_release: root.menu.open()
+             
+            MDRoundFlatButton:
+                text: "Ввести"
+                line_color: "#e7e4c0"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                text_color: "white"
+                on_press: root.addcheck()
+
+            
+<CheckWindow>:
+    MDScreen:
+
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12dp"
+            pos_hint: {"top": 1}
+            adaptive_height: True
+
+            MDTopAppBar:
+                title: "Введення витрат"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items:                 
+                    [["arrow-left", lambda x: root.main(),"Повернутись"]]
+
+            MDGridLayout:
+                adaptive_height: True
+                cols: 2
+                rows: 3
+
+                MDLabel:
+                    text: "  Введіть дату оплати"
+
+                MDTextField:
+                    id: data
+                    hint_text: "Формат дати: d.m.y"
+
+                MDLabel:
+                    text: "  Введіть суму оплати"
+
+                MDTextField:
+                    id: price
+                    hint_text: "Наприклад, 290.30"
+
+                MDLabel:
+                    text: "  Виберіть категорію"
+
+                MDDropDownItem:
+                    id: drop_item
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    text: ''
+                    on_release: root.menu.open()
+             
+            MDRoundFlatButton:
+                text: "OK"
+                md_bg_color: "#E7E4C0"
+                line_color: "#E7E4C0"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                text_color: "black"
+                on_press: root.addcheck()
+
+<SettingWindow>:
+    MDScreen:
+
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12dp"
+            pos_hint: {"top": 1}
+            adaptive_height: True
+
+            MDTopAppBar:
+                title: "Налаштування"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items:
+                    [["arrow-left", lambda x: root.main(),"Повернутись"]]
+
+            MDGridLayout:
+                adaptive_height: True
+                cols: 2
+                rows: 2
+
+            MDLabel:
+                text: "    Виберіть тему для програми: "
+
+            MDSwitch:
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                active: False
+                on_active: app.check(*args)
+<MainWindow>:
+    MDScreen:
+
+        MDNavigationLayout:
+
+            MDScreenManager:
+
+                MDScreen:
+
+                    MDTopAppBar:
+                        title: "Cost accounting"
+                        elevation: 2
+                        pos_hint: {"top": 1}
+                        md_bg_color: "#e7e4c0"
+                        specific_text_color: "#4a4939"
+                        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                type: "modal"
+                radius: (0, 16, 16, 0)
+
+                MDNavigationDrawerMenu:
+                    
+                    MDNavigationDrawerHeader:
+                        title: "Cost accounting"
+                        title_color: "#4a4939"
+                        text: "Облік витрат"
+                        spacing: "2dp"
+                        padding: "12dp", 0, 0, "56dp"
+
+                    MDNavigationDrawerLabel:
+                        text_color: "#fafaf7"
+                        text: "Витрати"
+
+                    DrawerClickableItem:
+                        text_color: "#4a4939"
+                        icon: "notebook-plus-outline"
+                        text: "Категорії"
+                        on_press:
+                            nav_drawer.set_state("close")
+                            root.category()
+
+                    DrawerClickableItem:
+                        icon: "qrcode-scan"                    
+                        text_color: "#4a4939"
+                        text: "Сканування чеку"
+                        on_press:
+                            nav_drawer.set_state("close")
+                            root.scan()
+                    
+
+                    DrawerClickableItem:                        
+                        text_color: "#4a4939"
+                        text: "Ввести витрати"
+                        icon: 'note-plus'
+                        on_press:
+                            nav_drawer.set_state("close")
+                            root.check()
+
+                    MDNavigationDrawerDivider:
+
+                    MDNavigationDrawerLabel:
+                        text_color: "#fafaf7"
+                        text: "Доходи"
+
+                    MDNavigationDrawerDivider:
+
+                    MDNavigationDrawerLabel:
+                        text_color: "#4a4939"
+                        text: "Статистика"
+
+                    DrawerClickableItem:
+                        icon: "table"                    
+                        text_color: "#4a4939"
+                        text: "Таблиці"
+                        on_press:
+                            nav_drawer.set_state("close")
+                            root.table()
+
+                    DrawerClickableItem:
+                        icon: "chart-bar"                    
+                        text_color: "#4a4939"
+                        text: "Діаграми"
+                        on_press:
+                            nav_drawer.set_state("close")
+                            root.chart()
+
+                    MDNavigationDrawerDivider:
+
+                    DrawerClickableItem:
+                        icon: "cogs"
+                        text: "Налаштування"
+                        text_color: "#4a4939"
+                        on_press:
+                            nav_drawer.set_state("close")
+                            root.setting()
+
+                    MDNavigationDrawerDivider:
+
+                    DrawerClickableItem:
+                        text: "Закрити"
+                        text_color: "#4a4939"
+                        on_press:
+                            nav_drawer.set_state("close")
+                            app.close_app()
