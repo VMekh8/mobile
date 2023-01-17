@@ -467,6 +467,24 @@
                 pos_hint: {'center_x': .5, 'center_y': .5}
                 active: False
                 on_active: app.check(*args)
+#-----------------------------------------------------------------
+<IncomeWindow>:
+    MDScreen:
+
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12 dp"
+            pos_hint: {"top": 1}
+            adaptive_height: True
+
+            MDTopAppBar:
+                title: "Ввести доходи"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items:
+                    [["arrow-left", lambda x: root.main(), "Повернутись"]]
+
 <MainWindow>:
     MDScreen:
 
