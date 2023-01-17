@@ -76,6 +76,9 @@ class MainWindow(Screen):
     def income(self):
         self.manager.current = "income"
 
+    def incometab(self):
+        self.manager.current = "incometab"
+
     def chart(self): 
         self.manager.current = "chart"
 
@@ -715,7 +718,12 @@ class IncomeWindow(Screen):
     def main(self):
         self.manager.current = "main"
 
+    #def addcheck(self):
 
+
+class IncomeTabWindow(Screen):
+    def main(self):
+        self.manager.current = "main"
 
 class CostAccounting(MDApp):
     def build(self):
