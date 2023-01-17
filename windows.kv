@@ -485,6 +485,32 @@
                 left_action_items:
                     [["arrow-left", lambda x: root.main(), "Повернутись"]]
 
+            MDGridLayout:
+                adaptive_height: True
+                cols: 2
+                rows: 3
+
+                MDLabel:
+                    text: "  Введіть дату отримання доходу: "
+
+                MDTextField:
+                    id: data
+                    hint_text: "Формат дати: d.m.y"
+
+                MDLabel:
+                    text: "  Введіть суму доходу"
+
+                MDTextField:
+                    id: price
+                    hint_text: "Наприклад, 290.30"
+            MDRoundFlatButton:
+                text: "OK"
+                md_bg_color: "#E7E4C0"
+                line_color: "#E7E4C0"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                text_color: "black"
+                #on_press:
+
 <MainWindow>:
     MDScreen:
 
