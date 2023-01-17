@@ -11,12 +11,15 @@
         name: "addcategory"
     DeleteCategoryWindow:
         name: "deletecategory"
+    IncomeWindow:
+        name: "income"
     TableWindow:
         name: "table"
     ChartWindow:
         name: "chart"
     SettingWindow:
         name: "setting"
+
 
 <DrawerClickableItem@MDNavigationDrawerItem>
     focus_color: "#e7e4c0"
@@ -529,6 +532,14 @@
                     MDNavigationDrawerLabel:
                         text_color: "#fafaf7"
                         text: "Доходи"
+
+                    DrawerClickableItem:
+                        icon: "cash"
+                        text_color: "#4a4939"
+                        text: "Ввести доходи"
+                        on_press:
+                            nav_drawer.set_state("close")
+                            root.income()
 
                     MDNavigationDrawerDivider:
 

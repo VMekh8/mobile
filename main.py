@@ -73,6 +73,9 @@ class MainWindow(Screen):
     def table(self): 
         self.manager.current = "table"
 
+    def income(self):
+        self.manager.current = "income"
+
     def chart(self): 
         self.manager.current = "chart"
 
@@ -706,12 +709,19 @@ class CategoryWindow(Screen):
         if text_item == "Видалити категорію":
             self.deletecategory()
         self.menu.dismiss()
-                
+#---------------------------------------------------------------------------------------------
+#Income Screen
+class IncomeWindow(Screen):
+    def main(self):
+        self.manager.current = "main"
+
+
+
 class CostAccounting(MDApp):
     def build(self):
         self.theme_cls.theme_style = theme
         return WindowManager()
-    
+
     def close_app(self, *args):
         MDApp.get_running_app().stop()
         self.root_window.close()       
