@@ -718,8 +718,18 @@ class IncomeWindow(Screen):
     def main(self):
         self.manager.current = "main"
 
-    #def addcheck(self):
 
+    def addcheck(self):
+        data = self.ids.data.text
+        price = self.ids.price.text
+        if data != "" and price != "":
+            db = sqlite3.connect('database.db')
+            cursor = db.cursor()
+            query = "INSERT INTO income(data, price) VALUES(?,?)"
+            values = [data,price]
+            cursor.execute(query,values)
+            db.commit()
+            self.manager.current = "main"
 
 class IncomeTabWindow(Screen):
     def main(self):
