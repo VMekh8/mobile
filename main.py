@@ -9,6 +9,12 @@ from kivymd.uix.label import MDLabel
 # from kivy.uix.button import Button
 from kivymd.uix.dialog import MDDialog
 
+
+from kivy.core.window import Window
+from kivy.utils import get_color_from_hex
+from kivymd.app import MDApp
+from kivymd.uix.label import MDLabel
+
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.list import OneLineIconListItem
 from kivy.properties import StringProperty
@@ -412,9 +418,9 @@ class TableWindow(Screen):
             rows = cursor.fetchone()
         rowInfo = [(row)]
         colHeaders = [
-            ("[color=#4a4939]Дата[/color]", dp(40)),
-            ("[color=#4a4939]Витрати[/color]", dp(40)),
-            ("[color=#4a4939]Категорія[/color]", dp(40))]
+            ("[color=#9bb584]Дата[/color]", dp(40)),
+            ("[color=#9bb584]Витрати[/color]", dp(40)),
+            ("[color=#9bb584]Категорія[/color]", dp(40))]
         table = MDDataTable(column_data=colHeaders,
                             size_hint=(1, 0.9),
                             background_color_header="#e7e4c0",
@@ -439,9 +445,9 @@ class TableWindow(Screen):
             rows = cursor.fetchone()
         rowInfo = [(row)]
         colHeaders = [
-            ("[color=#4a4939]Дата[/color]", dp(40)),
-            ("[color=#4a4939]Витрати[/color]", dp(40)),
-            ("[color=#4a4939]Категорія[/color]", dp(40))]
+            ("[color=#9bb584]Дата[/color]", dp(40)),
+            ("[color=#9bb584]Витрати[/color]", dp(40)),
+            ("[color=#9bb584]Категорія[/color]", dp(40))]
         table = MDDataTable(column_data=colHeaders,
                             size_hint=(1, 0.9),
                             background_color_header="#e7e4c0",
@@ -465,9 +471,9 @@ class TableWindow(Screen):
             rows = cursor.fetchone()
         rowInfo = [(row)]
         colHeaders = [
-            ("[color=#4a4939]Дата[/color]", dp(40)),
-            ("[color=#4a4939]Витрати[/color]", dp(40)),
-            ("[color=#4a4939]Категорія[/color]", dp(40))]
+            ("[color=#9bb584]Дата[/color]", dp(40)),
+            ("[color=#9bb584]Витрати[/color]", dp(40)),
+            ("[color=#9bb584]Категорія[/color]", dp(40))]
         table = MDDataTable(column_data=colHeaders,
                             size_hint=(1, 0.9),
                             background_color_header="#e7e4c0",

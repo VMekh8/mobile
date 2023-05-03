@@ -25,16 +25,16 @@
 
 <DrawerClickableItem@MDNavigationDrawerItem>
     focus_color: "#e7e4c0"
-    text_color: "#4a4939"
-    icon_color: "#4a4939"
+    text_color: "#9bb584"
+    icon_color: "#9bb584"
     ripple_color: "#c5bdd2"
     selected_color: "#0c6c4d"
 
 <DrawerLabelItem@MDNavigationDrawerItem>
-    text_color: "#4a4939"
-    icon_color: "#4a4939"
+    text_color: "#9bb584"
+    icon_color: "#9bb584"
     focus_behavior: False
-    selected_color: "#4a4939"
+    selected_color: "#9bb584"
     _no_ripple_effect: True
 
 <ChartWindow>:
@@ -48,14 +48,14 @@
             MDTopAppBar:
                 title: "Статистика"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:                 
                     [["arrow-left", lambda x: root.main(),"Повернутись"]]
                
             MDTabs:                
                 id: tabs_chart                 
                 background_color: "#e7e4c0"
-                text_color_normal: "#4a4939"
+                text_color_normal: "#9bb584"
                 text_color_active: "#998d03"
                 on_tab_switch: root.on_chart_switch(*args)
 
@@ -148,14 +148,14 @@
             MDTopAppBar:
                 title: "Статистика"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:                 
                     [["arrow-left", lambda x: root.main(),"Повернутись"]]
                
             MDTabs:                
                 id: tabs                 
                 background_color: "#e7e4c0"
-                text_color_normal: "#4a4939"
+                text_color_normal: "#9bb584"
                 text_color_active: "#998d03"
                 on_tab_switch: root.on_tab_switch(*args)
 
@@ -257,7 +257,7 @@
             MDTopAppBar:
                 title: "Категорії"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:                 
                     [["arrow-left", lambda x: root.main(),"Повернутись"]]
                 right_action_items:
@@ -285,7 +285,7 @@
             MDTopAppBar:
                 title: "Видалити категорію"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:                 
                     [["arrow-left", lambda x: root.category(),"Повернутись"]]
             MDGridLayout:
@@ -322,7 +322,7 @@
             MDTopAppBar:
                 title: "Додати категорію"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:                 
                     [["arrow-left", lambda x: root.category(),"Повернутись"]]
             MDGridLayout:
@@ -361,7 +361,7 @@
             MDTopAppBar:
                 title: "Введення витрат"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:                 
                     [["arrow-left", lambda x: root.main(),"Повернутись"]]
 
@@ -400,7 +400,7 @@
             MDTopAppBar:
                 title: "Введення витрат"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:                 
                     [["arrow-left", lambda x: root.main(),"Повернутись"]]
 
@@ -445,6 +445,7 @@
 
         MDBoxLayout:
             id: box
+
             orientation: "vertical"
             spacing: "12dp"
             pos_hint: {"top": 1}
@@ -453,7 +454,7 @@
             MDTopAppBar:
                 title: "Налаштування"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:
                     [["arrow-left", lambda x: root.main(),"Повернутись"]]
 
@@ -491,7 +492,7 @@
             MDTopAppBar:
                 title: "Ввести доходи"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:
                     [["arrow-left", lambda x: root.main(), "Повернутись"]]
 
@@ -534,7 +535,7 @@
             MDTopAppBar:
                 title: "Таблиця доходів"
                 md_bg_color: "#e7e4c0"
-                specific_text_color: "#4a4939"
+                specific_text_color: "#9bb584"
                 left_action_items:
                     [["arrow-left", lambda x: root.main(), "Повернутись"]]
 
@@ -554,7 +555,7 @@
                         elevation: 2
                         pos_hint: {"top": 1}
                         md_bg_color: "#e7e4c0"
-                        specific_text_color: "#4a4939"
+                        specific_text_color: "#9bb584"
                         left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
 
             MDNavigationDrawer:
@@ -566,17 +567,17 @@
                     
                     MDNavigationDrawerHeader:
                         title: "Cost accounting"
-                        title_color: "#4a4939"
+                        title_color: "#9bb584"
                         text: "Облік витрат"
                         spacing: "2dp"
                         padding: "12dp", 0, 0, "56dp"
 
                     MDNavigationDrawerLabel:
-                        text_color: "#fafaf7"
+                        text_color: "#9bb584"
                         text: "Витрати"
 
                     DrawerClickableItem:
-                        text_color: "#4a4939"
+                        text_color: "#9bb584"
                         icon: "notebook-plus-outline"
                         text: "Категорії"
                         on_press:
@@ -585,7 +586,7 @@
 
                     DrawerClickableItem:
                         icon: "qrcode-scan"                    
-                        text_color: "#4a4939"
+                        text_color: "#9bb584"
                         text: "Сканування чеку"
                         on_press:
                             nav_drawer.set_state("close")
@@ -593,7 +594,7 @@
                     
 
                     DrawerClickableItem:                        
-                        text_color: "#4a4939"
+                        text_color: "#9bb584"
                         text: "Ввести витрати"
                         icon: 'note-plus'
                         on_press:
@@ -603,12 +604,12 @@
                     MDNavigationDrawerDivider:
 
                     MDNavigationDrawerLabel:
-                        text_color: "#fafaf7"
+                        text_color: "#9bb584"
                         text: "Доходи"
 
                     DrawerClickableItem:
                         icon: "cash"
-                        text_color: "#4a4939"
+                        text_color: "#9bb584"
                         text: "Ввести доходи"
                         on_press:
                             nav_drawer.set_state("close")
@@ -617,7 +618,7 @@
 
                     DrawerClickableItem:
                         icon: "table-headers-eye"
-                        text_color: "#4a4939"
+                        text_color: "#9bb584"
                         text: "Таблиця доходів"
                         on_press:
                             nav_drawer.set_state("close")
@@ -626,12 +627,12 @@
                     MDNavigationDrawerDivider:
 
                     MDNavigationDrawerLabel:
-                        text_color: "#4a4939"
+                        text_color: "#9bb584"
                         text: "Статистика"
 
                     DrawerClickableItem:
                         icon: "table"                    
-                        text_color: "#4a4939"
+                        text_color: "#9bb584"
                         text: "Таблиці"
                         on_press:
                             nav_drawer.set_state("close")
@@ -639,7 +640,7 @@
 
                     DrawerClickableItem:
                         icon: "chart-bar"                    
-                        text_color: "#4a4939"
+                        text_color: "#9bb584"
                         text: "Діаграми"
                         on_press:
                             nav_drawer.set_state("close")
@@ -650,7 +651,7 @@
                     DrawerClickableItem:
                         icon: "cogs"
                         text: "Налаштування"
-                        text_color: "#4a4939"
+                        text_color: "#9bb584"
                         on_press:
                             nav_drawer.set_state("close")
                             root.setting()
@@ -659,7 +660,8 @@
 
                     DrawerClickableItem:
                         text: "Закрити"
-                        text_color: "#4a4939"
+                        icon: "close-thick"
+                        text_color: "#9bb584"
                         on_press:
                             nav_drawer.set_state("close")
                             app.close_app()
