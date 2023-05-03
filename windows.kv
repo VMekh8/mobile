@@ -469,6 +469,14 @@
                 pos_hint: {'center_x': .5, 'center_y': .5}
                 active: False
                 on_active: app.check(*args)
+
+
+            MDRaisedButton:
+                text: "Очистити базу даних"
+                md_bg_color: "red"
+                text_color: "black"
+                on_press: root.show_alert_dialog()
+
 #-----------------------------------------------------------------
 <IncomeWindow>:
     MDScreen:
