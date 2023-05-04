@@ -84,6 +84,9 @@ class MainWindow(Screen):
     def table(self):
         self.manager.current = "table"
 
+    def incomecategory(self):
+        self.manager.current = "incomecategory"
+
     def income(self):
         self.manager.current = "income"
 
@@ -854,6 +857,48 @@ class IncomeTabWindow(Screen):
         if instance_tab.name == 'tab2':
             self.ids.day2_label.text = datetime.datetime.strftime(today, '%d.%m.%Y')
             self.show_period()
+
+
+#Income Category Screen
+class IncomeCategoryWindow(Screen):
+
+    def main(self):
+        self.manager.current = "main"
+
+    def addcategory(self):
+        self.manager.current = "addcategory"
+
+    def deletecategory(self):
+        self.manager.current = "deletecategory"
+
+    def check(self, MDRoundFlatIconButton):
+        global s
+        s = str(MDRoundFlatIconButton.text)
+        self.manage.current = "check"
+
+    def on_enter(self):
+        self.ids.grid.clear_widgets()
+        d = ["Додати категорію", "Видалити категорію"]
+        for r in d:
+            items = menu
+
+    def callback(self, button):
+        self.menu.caller = button
+        self.menu.open()
+
+    def menu_callback(self, text_item):
+        if (text_item == "Додати категорію"):
+            self.addcategory()
+        if (text_item == "Видалити категорію"):
+            self.deletecategory()
+        self.menu.dismiss()
+
+
+
+
+
+
+
 
 
 class CostAccounting(MDApp):
