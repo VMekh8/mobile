@@ -522,24 +522,53 @@
                 text_color: "black"
                 on_press: root.addcheck()
 #IncomeTab Screen
+
 <IncomeTabWindow>:
-    MDScreen:
-
-        MDBoxLayout:
-            id: box
-            orientation: "vertical"
-            spacing: "12 dp"
-            pos_hint: {"top": 1}
-            adaptive_height: True
-
-            MDTopAppBar:
-                title: "Таблиця доходів"
-                md_bg_color: "#e7e4c0"
-                specific_text_color: "#9bb584"
-                left_action_items:
-                    [["arrow-left", lambda x: root.main(), "Повернутись"]]
-
-
+    # MDScreen:
+    #     MDBoxLayout:
+    #         id:box
+    #         orientation: "vertical"
+    #         spacing: "12dp"
+    #         pos_hint: {"top", 1}
+    #
+    #         MDTopAppBar:
+    #             title: "Статистика доходів"
+    #             mg_bg_color: "#e7e4c0"
+    #             specific_text_color: "#9bb584"
+    #             left_action_items:
+    #                 [["arrow-left", lambda x: root.main(), "Повернутись"]]
+    #
+    #         MDTabs:
+    #             id: tabs
+    #             background_color: "#e7e4c0"
+    #             text_color_normal: "#9bb584"
+    #             text_color_active: "#998d03"
+    #             on_tab_switch: root.on_tab_switch(*args)
+    #
+    #             Tab:
+    #                 id: tab1
+    #                 name: 'name1'
+    #                 title: 'Рік'
+    #
+    #                     BoxLayout:
+    #                         orientation: 'horizontal'
+    #                         spacing: 10
+    #                         pos: 0, root.height - 100
+    #
+    #                         MDFlatButton:
+    #                             text: "Виберіть рік"
+    #                             text_color: "black"
+    #                             mg_bg_color: "#e7e4c0"
+    #
+    #                         MDRaisedButton:
+    #                             id: day3_label
+    #                             text_color: "black"
+    #                             mg_bg_color: "#e7e4c0"
+    #                             on_release : root.show_date_picker()
+    #
+    #                     BoxLayout:
+    #                         id:grid_tab3
+    #                         orientation: 'horizontal'
 
 <MainWindow>:
     MDScreen:

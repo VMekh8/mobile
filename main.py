@@ -803,6 +803,58 @@ class IncomeTabWindow(Screen):
     def main(self):
         self.manager.current = "main"
 
+    def show_date_picker(self):
+        date_dialog = MDDatePicker(
+            primary_color= "darkorange",
+            accent_color = "black",
+            text_color = "white",
+            text_button_color = "white",
+            selector_color= "brown",
+        )
+        date_dialog.bind(on_save=self.on_save)
+        date_dialog.open()
+
+    def on_save(self, instance, value, date_range):
+        date = value.strftime("%Y")
+        self.ids.day3_label.text = str(date)
+        self.show_year()
+
+
+    def show_year(self):
+        self.ids.grid_tab3.clear_widgets()
+        row = []
+        text = self.ids.day3_label.text
+        db = sqlite3.connect('database.db')
+        cursor = db.cursor()
+        sql = ""
+        cursor.execute(sql)
+        rows = cursor.fetchone()
+        while rows:
+            row += rows
+            rows = cursor.fetchone()
+        rowInfo = [(row)]
+        colHeaders = [
+            ("[color=#9bb584]Дата[/color]", dp(40)),
+            ("[color=#9bb584]Витрати[/color]", dp(40)),
+            ("[color=#9bb584]Категорія[/color]", dp(40))]
+        table = MDDataTable(column_data=colHeaders,
+                            size_hint=(1, 0.9),
+                            background_color_header="#e7e4c0",
+                            background_color_cell="#e7e4c0",
+                            background_color_selected_cell="e7e4c0",
+                            row_data=rowInfo)
+        self.ids.grid_tab3.add_widget(table)
+
+    def on_tab_switch(self, instance_tabs, instance_tab, instance_tab_label, tab_text):
+        today = datetime.datetime.now()
+        if (instance_tabs.name) == "tab1":
+            self.ids.day3_label.text = datetime.datetime.strftime(today, '%Y')
+            self.show_year()
+
+        if instance_tab.name == 'tab2':
+            self.ids.day2_label.text = datetime.datetime.strftime(today, '%d.%m.%Y')
+            self.show_period()
+
 
 class CostAccounting(MDApp):
     def build(self):
