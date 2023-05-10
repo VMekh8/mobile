@@ -15,8 +15,8 @@
         name: "incomecategory"
     AddIncomeCategoryWindow:
         name: "addincomecategory"
-    #DeleteIncomeCategoryWindow:
-    #    name: "deleteincomecategory"
+    DeleteIncomeCategoryWindow:
+        name: "deleteincomecategory"
     IncomeWindow:
         name: "income"
     IncomeTabWindow:
@@ -651,6 +651,45 @@
                 pos_hint: {'center_x': .5, 'center_y': .5}
 
 
+
+<DeleteIncomeCategoryWindow>:
+    MDScreen:
+
+        MDBoxLayout:
+            id: box
+            orientation: "vertical"
+            spacing: "12dp"
+            pos_hint: {"top":1}
+            adaptive_height: True
+
+            MDTopAppBar:
+                title: "Видалити категорію"
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#9bb584"
+                left_action_items:
+                    [["left-arrow", lambda x: root.incomecategory(), "Повернутись"]]
+
+
+            MDTopAppBar:
+                adaptive_height: True
+                cols: 3
+                rows: 1
+
+                MDLabel:
+                    text: "  Виберіть назву категорії"
+
+                MDDropDownItem:
+                    id: drop_item
+                    pos_hint: {'center_x':.5, 'center_y':.5}
+                    text: ''
+                    on_release: root.menu.open()
+
+            MDRoundFlatButton:
+                text: "Видалити"
+                line_color: "#e7e4c0"
+                pos_hint: {'center_x':.5, 'center_y':.5}
+                text_color: "white"
+                on_press: root.deletecategory()
 
 
 

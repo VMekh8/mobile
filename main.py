@@ -860,6 +860,49 @@ class IncomeTabWindow(Screen):
 
 
 
+#Delete income category screen
+class DeleteIncomeCategoryWindow(Screen):
+    def incomecategory(self):
+        self.manager.current = "incomecategory"
+
+    def on_enter(self):
+        self.ids.drop_item.current_item = ""
+        db = sqlite3.connect("database.db")
+        cursor = db.cursor()
+        tsql = "SELECT name FROM categoryincome"
+        cursor.execute(tsql)
+        rows = cursor.fetchall()
+        for row in rows:
+            menu_items = [
+                {
+                "text": str(row[0]),
+                "viewclass": "Item",
+                "height": dp(56),
+                "on_release": lambda x=str(row[0]): self.set_item(x),
+            } for row in rows
+            ]
+
+        self.menu = MDDropdownMenu(
+            caller = self.ids.drop_item,
+            items = self.menu_items,
+            width_mult = 4,
+        )
+        self.menu.dind()
+
+    def set_item(self, text_item):
+        self.ids.drop_item.set_item(text_item)
+        self.menu.dismiss()
+
+    def deleteincomecategory(self):
+        name = str(self.ids.drop_item.current_item)
+        if name != "":
+            db = sqlite3.connect('database.db')
+            cursor = db.cursor()
+            query = "DELETE FROM categoryincome WHERE name='" + str(name) + "'"
+            cursor.execute(query)
+            db.commit()
+            self.manager.current = "incomecategory"
+
 #Add income category screen
 class AddIncomeCategoryWindow(Screen):
     def incomecategory(self):
@@ -912,7 +955,7 @@ class IncomeCategoryWindow(Screen):
         self.manager.current = "addincomecategory"
 
     def deletecategory(self):
-        self.manager.current = "deletecategory"
+        self.manager.current = "deleteincomecategory"
 
     def check(self, MDRoundFlatIconButton):
         global s
