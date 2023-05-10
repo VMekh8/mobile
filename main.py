@@ -859,6 +859,49 @@ class IncomeTabWindow(Screen):
             self.show_period()
 
 
+
+#Add income category screen
+class AddIncomeCategoryWindow(Screen):
+    def incomecategory(self):
+        self.manager.current = "incomecategory"
+
+    def addincomecategory(self, MDIconButton):
+        name = self.ids.name.text
+        icon = str(MDIconButton.icon)
+        if name != "":
+            db = sqlite3.connect("database.db")
+            cursor = db.cursor()
+            query = "INSERT INTO categoryincome(name, icon) VALUES('" + str(name) + "', '" + str(icon) + "')"
+            cursor.execute(query)
+            db.commit()
+            self.manager.current = "incomecategory"
+
+    def on_enter(self):
+        self.ids.grid.clear_widgets()
+        data = ['cash', 'currency-usd', 'gift', 'cellphone', 'heart', 'human', 'web-box', 'briefcase', 'currency-btc']
+        for t in data:
+            self.ids.grid.add_widget(
+                MDIconButton(
+                    id = str(t),
+                    icon = t,
+                    theme_icon_color = "Custom",
+                    pos_hint = {"center_x": .5},
+                    md_bg_color ="#e9dff7",
+                    line_color="#e7e4c0",
+                    text_color="#211c29",
+                    icon_color="#6e6604",
+                    width=120,
+                    on_release=self.addincomecategory
+                )
+            )
+
+
+
+
+
+
+
+
 #Income Category Screen
 class IncomeCategoryWindow(Screen):
 
@@ -866,7 +909,7 @@ class IncomeCategoryWindow(Screen):
         self.manager.current = "main"
 
     def addcategory(self):
-        self.manager.current = "addcategory"
+        self.manager.current = "addincomecategory"
 
     def deletecategory(self):
         self.manager.current = "deletecategory"
