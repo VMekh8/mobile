@@ -880,7 +880,42 @@ class IncomeCategoryWindow(Screen):
         self.ids.grid.clear_widgets()
         d = ["Додати категорію", "Видалити категорію"]
         for r in d:
-            items = menu
+            items_menu = [
+                {
+                "text" : r,
+                "viewclass": "OneLineListItem",
+                "height": dp(56),
+                "on_release": lambda x=r: self.menu_callback(x),
+                } for r in d
+            ]
+        self.menu = MDDropdownMenu(
+            items = items_menu,
+            width_mult = 4,
+        )
+
+        db = sqlite3.connect("database.db")
+        cursor = db.cursor()
+        tsql = "SELECT name, icon from categoryincome"
+        cursor.execute(tsql)
+        row = cursor.fetchone()
+        while row:
+            name = str(row[0])
+            self.ids.grid.add_widget(
+                MDRoundFlatIconButton(
+                    icon = str(row[1]),
+                    id = name,
+                    text = str(row[0]),
+                    theme_icon_color="Custom",
+                    pos_hint={"center_x": .5},
+                    md_bg_color="#e9dff7",
+                    line_color="#e7e4c0",
+                    text_color="#211c29",
+                    icon_color="#6e6604",
+                    width=120,
+                    on_release=self.check,
+                )
+            )
+            row = cursor.fetchone()
 
     def callback(self, button):
         self.menu.caller = button
